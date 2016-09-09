@@ -1,3 +1,4 @@
+require 'pry'
 def display_board( board) #board is the argument that this method will return - board is already a predefined array that it is referencing
   puts " #{board[0]} | #{board[1]} | #{board[2]} " #this creates the first line of our TTT board
   puts "-----------"                               #this creates the second line of our TTT board
@@ -18,8 +19,8 @@ end
 #  index.between(1,9) && position_taken?(array, index)
 #end
 
-def position_taken?(board, index)
-  if array[index] == " " || array[index] == "" || array[index] == nil
+def position_taken?(board, position)
+  if board[position] == " " || board[position] == "" || board[position] == nil
     false
   else
     true
@@ -27,7 +28,8 @@ def position_taken?(board, index)
 end
 
 def valid_move?(board, position)
-  if position.to_i-1.between?(0,8)
+  #binding.pry
+  if position.to_i.between?(0,8)
     if !position_taken?(board, position)
       true
     end
@@ -38,11 +40,11 @@ def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
   index = input_to_index( user_input)
-#  if valid_move?(board, user_input)
+  if valid_move?(board, index)
     move(board, index, value = "X")
-#  else
-#    turn( board)
-#  end
+  else
+    turn( board)
+  end
   display_board( board)
 end
 
