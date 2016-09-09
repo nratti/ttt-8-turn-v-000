@@ -10,12 +10,23 @@ def input_to_index( user_input) #this creates a method called input_to_index and
   value = user_input.to_i-1 #this line sets a varaible called "value" equal to the user_input argument and then converts it to an integer and subtracts one
 end
 
+def move(array, index, value = "X") #this creates a method called move that accepts 3 arguments 1) the array being edited, 2) the location within the index, 3) the new value of that will replace the previous value within the array, and sets a default value of "X" if no other value is given
+  array[index] = value
+end
+
 def valid_move?(array, index)
   if array.include?(array[index]) && (array[index] == " " || array[index] == "" || array[index] == nil)
-    def move(array, index, value = "X") #this creates a method called move that accepts 3 arguments 1) the array being edited, 2) the location within the index, 3) the new value of that will replace the previous value within the array, and sets a default value of "X" if no other value is given
-      array[index] = value
-    end
+    true
   else
-    false
+    puts "Invalid Move, Please enter again"
+
   end
+end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  user_input = gets.strip
+  index = input_to_index( user_input)
+  valid_move?(board, index)
+  move(board, index, value = "X")
 end
