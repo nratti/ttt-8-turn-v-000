@@ -14,11 +14,23 @@ def move(array, index, value = "X") #this creates a method called move that acce
   array[index] = value
 end
 
-def valid_move?(array, index)
-  if array.include?(array[index]) && (array[index] == " " || array[index] == "" || array[index] == nil)
-    true
-  else
+#def valid_move?(board, index)
+#  index.between(1,9) && position_taken?(array, index)
+#end
+
+def position_taken?(board, index)
+  if array[index] == " " || array[index] == "" || array[index] == nil
     false
+  else
+    true
+  end
+end
+
+def valid_move?(board, position)
+  if position.to_i-1.between?(0,8)
+    if !position_taken?(board, position)
+      true
+    end
   end
 end
 
@@ -26,6 +38,23 @@ def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
   index = input_to_index( user_input)
-  valid_move?(board, index)
-  move(board, index, value = "X")
+#  if valid_move?(board, user_input)
+    move(board, index, value = "X")
+#  else
+#    turn( board)
+#  end
+  display_board( board)
 end
+
+
+#def valid_move?(array, index)
+#  index.between?(1-9) && !index_taken?(array, index-1)
+#end
+
+#def position_taken(array, index)
+#  if array[index] == " " || array[index] == "" || array[index] == nil
+#    false
+#  else
+#    true
+#  end
+#end
