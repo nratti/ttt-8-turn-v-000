@@ -18,8 +18,7 @@ def valid_move?(array, index)
   if array.include?(array[index]) && (array[index] == " " || array[index] == "" || array[index] == nil)
     true
   else
-    puts "Invalid Move, Please enter again"
-
+    false
   end
 end
 
