@@ -28,35 +28,9 @@ def position_taken?(board, position)
 end
 
 def valid_move?(board, position)
-  #binding.pry
   if position.to_i.between?(0,8)
     if !position_taken?(board, position)
       true
     end
   end
 end
-
-def turn(board)
-  puts "Please enter 1-9:"
-  user_input = gets.strip
-  index = input_to_index( user_input)
-  if valid_move?(board, index)
-    move(board, index, value = "X")
-  else
-    turn( board)
-  end
-  display_board( board)
-end
-
-
-#def valid_move?(array, index)
-#  index.between?(1-9) && !index_taken?(array, index-1)
-#end
-
-#def position_taken(array, index)
-#  if array[index] == " " || array[index] == "" || array[index] == nil
-#    false
-#  else
-#    true
-#  end
-#end
