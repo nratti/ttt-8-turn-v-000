@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 def display_board( board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -11,7 +11,7 @@ def input_to_index( user_input)
   value = user_input.to_i-1
 end
 
-def move(array, index, value = "X") 
+def move(array, index, value = "X")
   array[index] = value
 end
 
@@ -30,3 +30,5 @@ def valid_move?(board, position)
     end
   end
 end
+
+def turn
