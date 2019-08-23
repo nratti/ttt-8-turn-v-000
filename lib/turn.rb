@@ -37,7 +37,7 @@ def turn(board)
   board_position = input_to_index(user_input)
   if valid_move?( board, board_position)
     board = move(board, board_position)
-
+    puts "#{board}"
   else
     turn(board)
   end
