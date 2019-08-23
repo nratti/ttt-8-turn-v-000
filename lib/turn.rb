@@ -36,10 +36,9 @@ def turn(board)
   user_input = gets.strip
   board_position = input_to_index(user_input)
   if valid_move?( board, board_position)
-    puts "Valid Move"
     board = move(board, board_position)
-    puts "#{board}"
+
   else
-    puts "Sad"
+    turn(board)
   end
 end
