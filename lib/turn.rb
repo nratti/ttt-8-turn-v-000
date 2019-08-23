@@ -38,7 +38,7 @@ def turn(board)
   if valid_move?( board, board_position)
     puts "Valid Move"
     board = move(board, board_position)
-    display_board(board)
+    puts "#{board}"
   else
     puts "Sad"
   end
