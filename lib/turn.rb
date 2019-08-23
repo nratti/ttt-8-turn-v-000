@@ -37,7 +37,8 @@ def turn(board)
   board_position = input_to_index(user_input)
   if valid_move?( board, board_position)
     puts "Valid Move"
-    move(board, board_position)
+    board = move(board, board_position)
+    display_board(board)
   else
     puts "Sad"
   end
